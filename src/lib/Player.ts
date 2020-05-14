@@ -14,7 +14,7 @@ export default class Player {
     const game = this.Table.getGame();
     if ((game.isTexasHoldem() || game.isSixPlusTexasHoldem()) && hand.length !== 2)
       throw new Error("A Texas hold'em hand must contain exactly 2 cards!");
-    if (game.isOmaha() && hand.length !== 4)
+      if (game.isOmaha() && (hand.length !== 4)  || (hand.length !== 5))
       throw new Error("An Omaha hand must contain exactly 4 cards!");
     this.hand = hand.map(c => {
       return this.Table.getDeck().getCards().find(card => card.toString() === c).setOwner(this);
